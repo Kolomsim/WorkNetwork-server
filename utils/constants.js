@@ -1,5 +1,5 @@
-export const signatureAccess = SIGNATURE_ACCESS
-export const signatureRefresh = SIGNATURE_REFRESH
+export const signatureAccess = process.env.SIGNATURE_ACCESS
+export const signatureRefresh = process.env.SIGNATURE_REFRESH
 
 export const fileTypes = {
 	images: ['image/jpeg', 'image/png', 'image/gif'],
