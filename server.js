@@ -11,6 +11,8 @@ const db = process.env.DB_URL
 mongoose
 	.connect(db, {
 		authSource: 'admin',
+		useNewUrlParser: true,
+		useUnifiedTopology: true,
 	})
 	.then(() => console.log('Подключение к MongoDB успешно'))
 	.catch(err => console.error('Ошибка подключения к MongoDB:', err))
