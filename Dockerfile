@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package*.json .
 RUN npm install
 COPY . .
-COPY userFiles ./userFiles
+COPY public ./public
 RUN npm install nodemon --save-dev bcrypt cookie-parser socket.io multer
 
 EXPOSE 4000
