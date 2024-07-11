@@ -35,10 +35,19 @@ export const sendComment = async (req, res) => {
 	const { forumId } = req.params
 	const { content, creatorId, parentId, attachments } = req.body
 
-	if (!content || !creatorId) {
+	// Проверка на наличие контента или вложений
+	if (
+		(!content || content.trim() === '') &&
+		(!attachments || attachments.length === 0)
+	) {
 		return res
 			.status(400)
-			.json({ message: 'Content and creatorId are required' })
+			.json({ message: 'Content or attachments are required' })
+	}
+
+	// Проверка на наличие creatorId
+	if (!creatorId) {
+		return res.status(400).json({ message: 'creatorId is required' })
 	}
 
 	try {
